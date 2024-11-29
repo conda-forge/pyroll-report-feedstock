@@ -1,6 +1,5 @@
 {% set name = "pyroll-report" %}
 {% set version = "2.1.1" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
