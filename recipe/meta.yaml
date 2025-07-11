@@ -1,5 +1,5 @@
 {% set name = "pyroll-report" %}
-{% set version = "3.0.0.post1" %}
+{% set version = "3.0.1.post0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyroll_report-{{ version }}.tar.gz
-  sha256: 80d891dadeb6953407f6d3c79558258bf4a4a03f477ac8f1effd828e0cf8adf6
+  sha256: 79f0c4b3a0d0a80795b62dbfc65253fabd44be31903dd65d70b526bbb7560a74
 
 build:
   noarch: python
