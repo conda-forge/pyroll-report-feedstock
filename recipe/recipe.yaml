@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: pyroll-report
+  version: "3.1.0"
+  python_min: "3.11"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pyroll_report-${{ version }}.tar.gz
+  sha256: 98c4b181202a4cf174de4324f138baccd1952da247fdbc6abcf7120a592f3065
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pyroll-core >=3.0,<4.dev0
+    - matplotlib-base >=3.6,<4.dev0
+    - jinja2 >=3.0,<4.dev0
+    - pluggy >=1.0,<2.dev0
+
+tests:
+  - python:
+      imports:
+        - pyroll.report
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: PyRoll rolling simulation framework - HTML report generation.
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://pyroll.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
